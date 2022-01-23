@@ -35,7 +35,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         });
     }
 
-    handleUpArrow(event: PacmanKeyboardMovementEvent) {
+    private handleUpArrow(event: PacmanKeyboardMovementEvent) {
         if (event.key === ArrowKeys.Up) {
             const newYPos = parseInt(this.state.Y.toString()) - this.props.initialSpeed;
             return this.setState({
@@ -44,7 +44,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         }
     }
 
-    handleDownArrow(event: PacmanKeyboardMovementEvent) {
+    private handleDownArrow(event: PacmanKeyboardMovementEvent) {
         if (event.key === ArrowKeys.Down) {
             const newYPos = parseInt(this.state.Y.toString()) + this.props.initialSpeed;
             this.setState({
@@ -53,7 +53,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         }
     }
 
-    handleLeftArrow(event: PacmanKeyboardMovementEvent) {
+    private handleLeftArrow(event: PacmanKeyboardMovementEvent) {
         if (event.key === ArrowKeys.Left) {
             const newXPos = parseInt(this.state.X.toString()) - this.props.initialSpeed;
             this.setState({
@@ -62,7 +62,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         }
     }
 
-    handleRightArrow(event: PacmanKeyboardMovementEvent) {
+    private handleRightArrow(event: PacmanKeyboardMovementEvent) {
         if (event.key === ArrowKeys.Right) {
             const newXPos = parseInt(this.state.X.toString()) + this.props.initialSpeed;
             this.setState({
@@ -71,22 +71,14 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         }
     }
 
-    updateRotationClass(event: PacmanKeyboardMovementEvent) {
+    private updateRotationClass(event: PacmanKeyboardMovementEvent) {
         const originalRotation = this.state.rotationClass;
         this.setState({
             rotationClass: this.getRotationClass(event.key) || originalRotation 
         });
     }
 
-    handleKeyboardInput(event: PacmanKeyboardMovementEvent) {
-        this.handleUpArrow(event);
-        this.handleLeftArrow(event);
-        this.handleRightArrow(event);
-        this.handleDownArrow(event);
-        this.updateRotationClass(event);
-    }
-
-    getRotationClass(key: ArrowKeys): RotationClass | undefined {
+    private getRotationClass(key: ArrowKeys): RotationClass | undefined {
         if (key === ArrowKeys.Left) {
             return 'rotateLeft';
         }
@@ -99,6 +91,14 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         if (key === ArrowKeys.Down) {
             return 'rotateDown';
         }
+    }
+
+    handleKeyboardInput(event: PacmanKeyboardMovementEvent) {
+        this.handleUpArrow(event);
+        this.handleLeftArrow(event);
+        this.handleRightArrow(event);
+        this.handleDownArrow(event);
+        this.updateRotationClass(event);
     }
 
     render(): React.ReactNode {
