@@ -1,6 +1,8 @@
 # pacman
 The classic Pacman game written in React with Typescript
 
+## Note: The game is still in development
+
 ## TODO: Write tests for every single functionality
 
 ## Prerequisites
