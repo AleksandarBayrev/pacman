@@ -1,0 +1,1 @@
+export type RotationClass = 'rotateUp' | 'rotateDown' | 'rotateLeft' | 'rotateRight'

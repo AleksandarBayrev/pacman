@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type ScoreProps = {
     currentScore: number;
@@ -7,8 +7,8 @@ type ScoreProps = {
 export class Score extends React.Component<ScoreProps> {
     render(): React.ReactNode {
         return (
-            <div className="Pacman-App-Score-Container">
-                <div className="Pacman-App-Score">Current score: {this.props.currentScore}</div>
+            <div className='Pacman-App-Score-Container'>
+                <div className='Pacman-App-Score'>Current score: {this.props.currentScore}</div>
             </div>
         )
     }

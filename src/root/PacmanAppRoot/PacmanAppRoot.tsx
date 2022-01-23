@@ -1,8 +1,7 @@
-import React from "react";
-import { Score } from "./components";
-import { Pacman } from "./components/Pacman";
-import { ArrowKeys, Boundaries, PacmanKeyboardMovementEvent, RotationClass } from "./types";
-import "./PacmanAppRoot.css";
+import React from 'react';
+import { Score, Pacman } from '../components';
+import { ArrowKeys, Boundaries, PacmanKeyboardMovementEvent, RotationClass } from '../../types';
+import './PacmanAppRoot.css';
 
 type AppProps = {
     initialX: number;
@@ -31,7 +30,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
     }
     componentDidMount() {
-        window.addEventListener("keydown", (event: any) => {
+        window.addEventListener('keydown', (event: any) => {
             this.handleKeyboardInput(event);
         });
     }
@@ -116,11 +115,11 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
 
     render(): React.ReactNode {
         return (
-            <div className="Pacman-App-Root">
-                <div className="Pacman-Score-Container">
+            <div className='Pacman-App-Root'>
+                <div className='Pacman-Score-Container'>
                     <Score currentScore={this.state.currentScore} />
                 </div>
-                <div className="Pacman-Game-Container">
+                <div className='Pacman-Game-Container'>
                     <Pacman
                     X={this.state.X}
                     Y={this.state.Y}

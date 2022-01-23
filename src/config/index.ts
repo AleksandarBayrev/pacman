@@ -1,4 +1,4 @@
-import { PacmanAppConfiguration } from "./types";
+import { PacmanAppConfiguration } from '../types';
 
 export const config: PacmanAppConfiguration = {
     initialX: 0,
