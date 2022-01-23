@@ -35,18 +35,6 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         });
     }
 
-    isRowInBoundaries() {
-        console.log(`X=${this.state.X}`);
-        console.log(`boundaries=${JSON.stringify(this.props.boundaries)}`);
-        return this.state.X >= this.props.boundaries.left && this.state.X <= this.props.boundaries.right;
-    }
-
-    isColumnInBoundaries() {
-        console.log(`Y=${this.state.Y}`);
-        console.log(`boundaries=${JSON.stringify(this.props.boundaries)}`);
-        return this.state.Y >= this.props.boundaries.top && this.state.Y <= this.props.boundaries.bottom;
-    }
-
     handleUpArrow(event: PacmanKeyboardMovementEvent) {
         if (event.key === ArrowKeys.Up) {
             const newYPos = parseInt(this.state.Y.toString()) - this.props.initialSpeed;
