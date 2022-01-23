@@ -1,0 +1,20 @@
+#pacman-head {
+    width: 50px;
+    height: 50px;
+}
+
+.rotateUp {
+    transform: rotate(-90deg);
+}
+
+.rotateRight {
+    transform: rotate(90deg);
+}
+
+.rotateDown {
+    transform: rotate(180deg);
+}
+
+.rotateLeft {
+    transform: rotate(270deg);
+}
