@@ -8,13 +8,13 @@
 }
 
 .rotateRight {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
 }
 
 .rotateDown {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
 }
 
 .rotateLeft {
-    transform: rotate(270deg);
+    transform: rotate(-180deg);
 }

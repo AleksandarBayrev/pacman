@@ -14,7 +14,7 @@ export type PacmanAppConfiguration = {
 
 export type Degree = `${number}deg`
 
-export type RotationClass = '.rotateUp' | '.rotateDown' | '.rotateLeft' | '.rotateRight'
+export type RotationClass = 'rotateUp' | 'rotateDown' | 'rotateLeft' | 'rotateRight'
 
 export type Boundaries = {
     top: number;

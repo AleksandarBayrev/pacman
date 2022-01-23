@@ -25,7 +25,7 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         this.state = {
             X: props.initialX,
             Y: props.initialY,
-            rotationClass: props.initialRotationClass || '.rotateRight',
+            rotationClass: props.initialRotationClass || 'rotateRight',
             currentScore: 0
         };
         this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
@@ -85,8 +85,9 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
     }
 
     updateRotationClass(event: PacmanKeyboardMovementEvent) {
+        const originalRotation = this.state.rotationClass;
         this.setState({
-            rotationClass: this.getRotationClass(event.key)
+            rotationClass: this.getRotationClass(event.key) || originalRotation 
         });
     }
 
@@ -98,20 +99,19 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         this.updateRotationClass(event);
     }
 
-    getRotationClass(key: ArrowKeys): RotationClass {
+    getRotationClass(key: ArrowKeys): RotationClass | undefined {
         if (key === ArrowKeys.Left) {
-            return '.rotateLeft';
+            return 'rotateLeft';
         }
         if (key === ArrowKeys.Right) {
-            return '.rotateRight';
+            return 'rotateRight';
         }
         if (key === ArrowKeys.Up) {
-            return '.rotateUp';
+            return 'rotateUp';
         }
         if (key === ArrowKeys.Down) {
-            return '.rotateDown';
+            return 'rotateDown';
         }
-        return '.rotateLeft';
     }
 
     render(): React.ReactNode {
