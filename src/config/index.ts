@@ -6,5 +6,11 @@ export const config: PacmanAppConfiguration = {
     initialRotationClass: 'rotateRight',
     initialSpeed: 10,
     initialMouthState: false,
+    initialBoundaries: {
+        top: 0,
+        left: 0,
+        right: window.screen.availWidth,
+        bottom: window.screen.availHeight
+    },
     mouthUpdateInterval: 250
 }

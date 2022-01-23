@@ -13,12 +13,7 @@ export class PacmanApp extends React.Component {
             initialY={config.initialY}
             initialRotationClass={config.initialRotationClass}
             initialSpeed={config.initialSpeed}
-            boundaries={{
-              top: 0,
-              left: 0,
-              right: window.screen.availWidth,
-              bottom: window.screen.availHeight
-            }}
+            boundaries={config.initialBoundaries}
             initialMouthState={config.initialMouthState}
             mouthUpdateInterval={config.mouthUpdateInterval} />
         </div>

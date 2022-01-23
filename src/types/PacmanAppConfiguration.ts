@@ -1,3 +1,4 @@
+import { Boundaries } from './Boundaries';
 import { RotationClass } from './RotationClass';
 
 export type PacmanAppConfiguration = {
@@ -6,5 +7,6 @@ export type PacmanAppConfiguration = {
     initialSpeed: number;
     initialRotationClass: RotationClass;
     initialMouthState: boolean;
+    initialBoundaries: Boundaries;
     mouthUpdateInterval: number;
 }
