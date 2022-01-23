@@ -9,6 +9,8 @@ type AppProps = {
     initialRotationClass: RotationClass;
     initialSpeed: number;
     boundaries: Boundaries;
+    initialMouthState: boolean;
+    mouthUpdateInterval: number;
 }
 
 type AppState = {
@@ -16,6 +18,7 @@ type AppState = {
     Y: number;
     rotationClass: RotationClass;
     currentScore: number;
+    isMouthOpen: boolean;
 }
 
 export class PacmanAppRoot extends React.Component<AppProps, AppState> {
@@ -25,14 +28,21 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
             X: props.initialX,
             Y: props.initialY,
             rotationClass: props.initialRotationClass || 'rotateRight',
-            currentScore: 0
+            currentScore: 0,
+            isMouthOpen: props.initialMouthState
         };
         this.handleKeyboardInput = this.handleKeyboardInput.bind(this);
+        this.handleUpArrow = this.handleUpArrow.bind(this);
+        this.handleDownArrow = this.handleDownArrow.bind(this);
+        this.handleLeftArrow = this.handleLeftArrow.bind(this);
+        this.handleRightArrow = this.handleRightArrow.bind(this);
+        this.updateMouthState = this.updateMouthState.bind(this);
     }
     componentDidMount() {
         window.addEventListener('keydown', (event: any) => {
             this.handleKeyboardInput(event);
         });
+        setInterval(this.updateMouthState, this.props.mouthUpdateInterval);
     }
 
     private handleUpArrow(event: PacmanKeyboardMovementEvent) {
@@ -78,6 +88,12 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
         });
     }
 
+    private updateMouthState(event: PacmanKeyboardMovementEvent) {
+        this.setState({
+            isMouthOpen: !this.state.isMouthOpen
+        });
+    }
+
     private getRotationClass(key: ArrowKeys): RotationClass | undefined {
         if (key === ArrowKeys.Left) {
             return 'rotateLeft';
@@ -109,9 +125,11 @@ export class PacmanAppRoot extends React.Component<AppProps, AppState> {
                 </div>
                 <div className='Pacman-Game-Container'>
                     <Pacman
-                    X={this.state.X}
-                    Y={this.state.Y}
-                    rotationClass={this.state.rotationClass} />
+                        X={this.state.X}
+                        Y={this.state.Y}
+                        rotationClass={this.state.rotationClass}
+                        isMouthOpen={this.state.isMouthOpen}
+                    />
                 </div>
             </div>
         )

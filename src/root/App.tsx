@@ -18,7 +18,9 @@ export class PacmanApp extends React.Component {
               left: 0,
               right: window.screen.availWidth,
               bottom: window.screen.availHeight
-            }}/>
+            }}
+            initialMouthState={config.initialMouthState}
+            mouthUpdateInterval={config.mouthUpdateInterval} />
         </div>
       </div>
     );

@@ -5,4 +5,6 @@ export type PacmanAppConfiguration = {
     initialY: number;
     initialSpeed: number;
     initialRotationClass: RotationClass;
+    initialMouthState: boolean;
+    mouthUpdateInterval: number;
 }
